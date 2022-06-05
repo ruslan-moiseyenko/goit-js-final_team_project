@@ -1,0 +1,35 @@
+.card-preview-info {
+  display: flex;
+  font-size: 12px;
+  line-height: 1.33;
+}
+
+.card-preview-info__name {
+  margin: 10px 0 0 0 ;
+  font-size: 12px;
+  line-height: 1.33;
+  width: 280px;
+  @media screen and (min-width: 767px) {
+    width: 293px;
+  }
+    
+  @media screen and (min-width: 1024px) {
+    width: 274px;
+  }
+}
+
+.card-preview-info__data {
+  color: $accent-color;
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.33;
+  margin-right: 10px;
+}
+
+.card-preview-info__rating {
+  padding: 2px 9px 1px 10px;
+  background-color:  $accent-color;
+  color: $primary-white-color;
+  border-radius: 5px;
+  line-height: 1.16;
+}

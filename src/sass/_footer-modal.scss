@@ -1,0 +1,271 @@
+/*бекдроп и оверлей*/
+
+.footer__backdrop--visible {
+  overflow-y: scroll;
+  padding: 93px 15px;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  opacity: 1;
+
+  transition: opacity 250ms linear;
+
+  @media screen and (min-width: 1024px) {
+    transition: opacity 250ms linear;
+  }
+
+  z-index: 10;
+
+  width: 100%;
+  height: 100%;
+
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.footer__backdrop--hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+
+  @media screen and (min-width: 1024px) {
+    transition: opacity 250ms linear, visibility 250ms linear;
+  }
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  opacity: 1;
+  font-size: 40px;
+
+  @media screen and (max-width: 767px) {
+    font-size: 30px;
+  }
+
+  font-weight: 700;
+  text-align: center;
+  background-image: url(../images/bg_modal-team.jpg);
+
+  transition: opacity 250ms linear;
+
+  z-index: 10;
+
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  pointer-events: none;
+}
+
+.modal-bg {
+  background-image: linear-gradient(to right, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)),
+    url('../images/bg_modal-team.jpg');
+}
+
+/*модалка*/
+
+.footer__modal {
+  .footer__backdrop--visible & {
+    padding: 45px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border-radius: 4px;
+    background-color: #fff;
+    position: relative;
+    margin: 0 auto;
+
+    @media screen and (min-width: 1024px) {
+      transition: transform 250ms linear;
+    }
+
+    @media screen and (max-width: 767px) {
+      max-width: 450px;
+    }
+
+    @media screen and (min-width: 768px) and (max-width: 1023px) {
+      max-width: 520px;
+    }
+
+    @media screen and (min-width: 1024px) {
+      width: 738px;
+      height: 482px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(1);
+    }
+  }
+
+  .footer__backdrop--hidden & {
+    transform: translate(-50%, -50%) scale(0.5);
+  }
+}
+
+/*наполнение модалки*/
+
+.footer-modal__title {
+  text-align: center;
+  margin-bottom: 10px;
+  margin-top: 0;
+}
+
+.footer__button-close {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+
+  cursor: pointer;
+  padding: 5px;
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+
+  transition: background 250ms linear;
+
+  &:hover,
+  &:focus {
+    background-color: $accent-color;
+  }
+}
+
+.team {
+  margin-left: auto;
+  margin-right: auto;
+
+  @media screen and (min-width: 768px) {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+
+/*наполнение модалки - карточка*/
+
+.team__item {
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 0px 0px 4px 4px;
+
+  transition: transform 200ms linear;
+
+  @media screen and (max-width: 767px) {
+    &:not(:last-child) {
+      margin-bottom: 30px;
+    }
+  }
+
+  @media screen and (min-width: 768px) and (max-width: 1023px) {
+    &:nth-child(2n + 1) {
+      margin-right: 30px;
+    }
+
+    &:nth-child(n + 3) {
+      margin-top: 30px;
+    }
+  }
+
+  @media screen and (min-width: 1024px) {
+    &:not(:nth-child(4n + 1)) {
+      margin-left: 15px;
+    }
+
+    &:nth-child(n + 5) {
+      margin-top: 10px;
+    }
+  }
+}
+
+.team__item:hover {
+  transform: scale(1.1);
+}
+
+.team__item.big {
+  @media screen and (min-width: 1024px) {
+    position: fixed;
+    transition: transform 500ms linear;
+    opacity: 0;
+    transform: scale(2.2);
+
+    margin: 0;
+  }
+}
+
+.team__img {
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  @media screen and (max-width: 767px) {
+    width: 100%;
+    max-width: 360px;
+    height: 350px;
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 200px;
+    height: 250px;
+  }
+
+  @media screen and (min-width: 1024px) {
+    width: 150px;
+    height: 145px;
+  }
+}
+
+.team__img--centered {
+  background-position: top;
+}
+
+.team__img--left {
+  background-position: left;
+}
+
+/*наполнение модалки - карточка - текст в карточке*/
+
+.team__wrapper {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+
+  border-radius: 0px 0px 4px 4px;
+  background: #ffffff;
+}
+
+.team__title {
+  margin-top: 0;
+  margin-bottom: 10px;
+  color: black;
+
+  font-size: 14px;
+  line-height: 1.17;
+
+  font-weight: 500;
+  text-align: center;
+}
+
+.team__text {
+  margin-top: 0;
+  color: grey;
+
+  font-size: 16px;
+  line-height: 1.17;
+  text-align: center;
+}
+
+body.is-open {
+  overflow-y: hidden;
+}
+
+.footer-btn-open {
+  cursor: pointer;
+  color: inherit;
+  background-color: inherit;
+  border: 0;
+  text-decoration: underline;
+}

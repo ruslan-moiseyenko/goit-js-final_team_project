@@ -1,0 +1,224 @@
+.header {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+    url(../images/bg_header.jpg);
+  width: 100%;
+  height: 230px;
+  min-width: 320px;
+  padding-top: 40px;
+  padding-bottom: 97px;
+
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top;
+}
+
+.header-home {
+  @media screen and (max-width: 767px) {
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+      url('../images/bg_header-mobile.jpg');
+
+    @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+      background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+        url('../images/bg_header-mobile@2x.jpg');
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+      url('../images/bg_header-tablet.jpg');
+
+    @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+      background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+        url('../images/bg_header-tablet@2x.jpg');
+    }
+  }
+
+  @media screen and (min-width: 1024px) {
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+      url('../images/bg_header.jpg');
+
+    @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+      background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+        url('../images/bg_header@2x.jpg');
+    }
+  }
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.logo__icon {
+  justify-self: middle;
+  animation: scroll 3s infinite;
+}
+@keyframes scroll {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-0.3rem);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.logo__text {
+  display: none;
+
+  font-family: Roboto;
+  font-size: 30px;
+  font-weight: 500;
+  line-height: 35px;
+  letter-spacing: 0em;
+  text-align: center;
+
+  color: $primary-white-color;
+  @media screen and (min-width: 768px) {
+    display: inline-block;
+    margin-left: 10px;
+  }
+}
+
+.nav__list {
+  display: flex;
+  margin-left: auto;
+  align-items: center;
+
+  color: $primary-white-color;
+}
+
+.nav__wrap {
+  display: flex;
+  flex-direction: row;
+}
+
+.nav__item {
+  font-family: Roboto;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 14px;
+  letter-spacing: 0em;
+  text-align: center;
+  text-transform: uppercase;
+
+  padding: 10px 0;
+  position: relative;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &:not(:last-child) {
+    margin-right: 39px;
+  }
+}
+
+.nav__item--current::after {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 3px;
+  position: absolute;
+  background-color: $accent-color;
+}
+
+.search-field {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 37px;
+}
+
+button[data-action='search-btn'] {
+  padding: 0;
+  border: none;
+  outline: none;
+  font: inherit;
+  color: inherit;
+  background: none;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.search-field__input {
+  font-family: Roboto;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 16px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: $primary-white-color;
+
+  height: 20px;
+  width: 280px;
+
+  background-color: transparent;
+  border: 0;
+  border-bottom: 0.5px solid #ffffff;
+
+  @media screen and (min-width: 768px) {
+    width: 336px;
+  }
+
+  &:focus {
+    outline: none;
+    border: 0;
+    border-bottom: 0.5px solid #ffffff;
+  }
+
+  &::placeholder {
+    font-family: Roboto;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 16px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: $primary-white-color;
+
+    transition-property: color;
+    transition-duration: $transition-duration;
+    transition-timing-function: ease;
+  }
+
+  &:focus::placeholder {
+    color: transparent;
+  }
+}
+
+.search-field__form {
+  position: relative;
+}
+
+.search-field__icon {
+  align-items: center;
+  text-align: center;
+
+  stroke: white;
+  transition-property: stroke;
+  transition-duration: $transition-duration;
+  transition-timing-function: ease-in;
+}
+
+.search-field__btn {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  position: absolute;
+  right: 0;
+  top: 0;
+  align-items: center;
+  justify-content: center;
+  &:hover .search-field__icon,
+  &:focus .search-field__icon {
+    stroke: $accent-color;
+  }
+}

@@ -1,0 +1,104 @@
+.slider {
+    display: block;
+    padding-top: 60px;
+    padding-bottom: 20px;
+    min-height: max-content;
+
+    @media screen and (max-width: 768px) {
+        display: none;
+    }
+
+    &.hidden {
+        display: none;
+    }
+}
+
+.slider__title {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+    font-weight: 500;
+
+    body.dark & {
+        color: $primary-white-color;
+    }
+}
+
+.carouselbox{
+
+    height: auto;
+    width: auto;
+    overflow: hidden;
+    white-space: nowrap;
+    display: inline-block;
+    text-align: center;
+    padding: 10px ;
+    display: flex;
+    align-items: center;
+    min-height: 230px;
+}
+
+.carouselbox img {
+    min-width: 147px;
+    max-width: 147px;
+    border-radius: 5px;
+    height: 200px;
+    background-size: cover;
+    margin: 5px 10px;
+    cursor: pointer;
+    transition: 0.2s linear;
+    z-index: 2;
+
+    &:hover{
+        transform: scale(1.1);
+        z-index: 5;
+    }
+
+    &:first-child() {
+        margin-left: 0;
+    }
+}
+
+.carousel {
+    margin: auto;
+    width: 100%;
+    position: relative;
+}
+
+.carousel .switchleft,
+.carousel .switchright{
+    font-weight: 500;
+    height: 100%;
+    width: 45px;
+    line-height: 0;
+    font-size: 25px;
+    text-align: center;
+    top: 0;
+    z-index: 3;
+    background-color: $accent-color;
+    color: $primary-white-color;
+}
+
+.carousel .switchleft{
+    position: absolute;
+    left: -50px;
+
+}
+
+.carousel .switchright{
+    position: absolute;
+    right: -50px;
+             
+}
+
+.sliderButton {
+    border-radius: 5px;
+    border: none;
+    transition: 0.2s linear;
+    background-color: $accent-color;
+
+    &:hover {
+        transform: scale(1.1);
+        transition: 0.2s linear;
+    }
+}
